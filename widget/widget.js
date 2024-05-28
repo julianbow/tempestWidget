@@ -10,9 +10,7 @@ $(document).ready(function () {
 
 function attachEventHandlers() {
     $("#menu .slider").on("click", function () {
-		console.log("slider clicked");
-        let dataId = $(this).data("id");
-        console.log("dataId: ", dataId);
+        const dataId = $(this).data("id");
         getParameters(dataId);
     });
 
@@ -78,15 +76,13 @@ function initMap(center, zoom) {
     });
 
     google.maps.event.addListener(map, "idle", function () {
-        getParameters();
+		const dataId = $(".slider.checked").data("id");
+
+        getParameters(dataId);
     });
 }
 
 function getParameters(paramId) {
-    if (paramId === undefined) {
-        paramId = 5;
-    }
-
     const urlData = {
         lat_min: map.getBounds().getSouthWest().lat(),
         lat_max: map.getBounds().getNorthEast().lat(),
@@ -153,29 +149,46 @@ function displayMarkers(spots, paramId) {
         location.stations.forEach(function (station) {
             if (station.provider === 1046 || station.provider === 1047) {
                 let param;
-				let windDir = null;
 
                 switch (paramId) {
                     case 1:
-                        param = Math.ceil(station.data_values[0][2]);
-						styles[paramId].icon.rotation = station.data_values[0][5];
-                        break;
+						if (station.data_values[0][2] === null) {
+							param = null;
+						} else {
+							param = Math.ceil(station.data_values[0][2]);
+							styles[paramId].icon.rotation = station.data_values[0][5];
+						}
+						break;
                     case 4:
-                        param = Math.ceil(station.data_values[0][11]);
+						if (station.data_values[0][11] === null) {
+							param = null;
+						} else {
+							param = Math.ceil(station.data_values[0][11]);
+						}
                         break;
                     case 5:
-                        param = Math.ceil(station.data_values[0][7]) + "°";
+						if (station.data_values[0][7] === null) {
+							param = null;
+						} else {
+							param = Math.ceil(station.data_values[0][7]) + "°";
+						}
                         break;
                     case 139:
-                        param = Math.ceil(station.data_values[0][15]) + "%";
+						if (station.data_values[0][15] === null) {
+							param = null;
+						} else {
+							param = Math.ceil(station.data_values[0][15]) + "%";
+						}
                         break;
                 }
 
                 const latlng = new google.maps.LatLng(location.lat, location.lon);
 
-                // Create and add a custom overlay for each parameter
-                const overlay = new CustomOverlay(latlng, map, styles[paramId] && styles[paramId].icon ? styles[paramId].icon.url : null, styles[paramId] && styles[paramId].icon ? styles[paramId].icon.rotation : 0, param);
-                customOverlays.push(overlay);
+				if (param !== null) {
+					// Create and add a custom overlay for each parameter
+					const overlay = new CustomOverlay(latlng, map, styles[paramId] && styles[paramId].icon ? styles[paramId].icon.url : null, styles[paramId] && styles[paramId].icon ? styles[paramId].icon.rotation : 0, param);
+					customOverlays.push(overlay);
+				}
             }
         });
     });

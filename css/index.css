@@ -81,7 +81,7 @@ h3 {
 }
 
 #menu.expanded #menu-toggle .arrow {
-    transform: rotate(180deg); /* Rotate the arrow up */
+    transform: rotate(180deg);
 }
 
 #menu-options {
@@ -90,11 +90,11 @@ h3 {
     align-items: flex-start;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease; /* Smooth transition */
+    transition: max-height 0.3s ease;
 }
 
 #menu.expanded #menu-options {
-    max-height: 500px; /* Adjust based on content height */
+    max-height: 500px;
 }
 
 .toggle {
@@ -102,7 +102,6 @@ h3 {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 10px;
 }
 
 .toggle h3 {
