@@ -17,6 +17,8 @@ class CustomOverlay extends google.maps.OverlayView {
         div.style.display = 'flex';
         div.style.alignItems = 'center';
         div.style.justifyContent = 'center';
+        div.style.padding = '5px'; // Add padding to the container div
+        div.style.overflow = 'visible'; // Ensure overflow is visible
 
         if (this.imageSrc) {
             const img = document.createElement('img');
@@ -33,16 +35,19 @@ class CustomOverlay extends google.maps.OverlayView {
         textDiv.style.fontSize = '15px';
         textDiv.style.fontWeight = '600';
         textDiv.style.textAlign = 'center';
+        textDiv.style.padding = '2px'; // Add padding to the text div
+        textDiv.style.whiteSpace = 'nowrap';
+        textDiv.style.letterSpacing = ".025rem";
         textDiv.style.textShadow = `
-        -1px -1px 0 ${this.strokeColor},
-        1px -1px 0 ${this.strokeColor},
-        -1px 1px 0 ${this.strokeColor},
-        1px 1px 0 ${this.strokeColor},
-        0px -1px 0 ${this.strokeColor},
-        -1px 0px 0 ${this.strokeColor},
-        1px 0px 0 ${this.strokeColor},
-        0px 1px 0 ${this.strokeColor}
-    `;
+            -0.8px -0.8px 0 ${this.strokeColor},
+            0.8px -0.8px 0 ${this.strokeColor},
+            -0.8px 0.8px 0 ${this.strokeColor},
+            0.8px 0.8px 0 ${this.strokeColor},
+            0px -0.8px 0 ${this.strokeColor},
+            -0.8px 0px 0 ${this.strokeColor},
+            0.8px 0px 0 ${this.strokeColor},
+            0px 0.8px 0 ${this.strokeColor}
+        `;
         textDiv.innerText = this.text;
         div.appendChild(textDiv);
 

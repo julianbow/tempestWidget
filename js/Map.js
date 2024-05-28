@@ -19,7 +19,7 @@ class Map {
             <input type="radio" id="humidity" name="option" value="Humidity" data-id="139">
             <label for="humidity">Humidity</label>
         </div>
-            <div id="widget-footer"><img src="/css/images/tempest-logo.svg" class="tempest-logo"></img></div>
+            <a href="https://shop.tempest.earth/products/tempest" target="_blank"><div id="widget-footer"><img src="/css/images/tempest-logo.svg" class="tempest-logo"></img></div></a>
             <link rel='stylesheet' type='text/css' href="/css/index.css"></link>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
             <script>
