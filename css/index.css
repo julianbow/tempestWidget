@@ -4,6 +4,10 @@ html, body {
     height: 100%;
 }
 
+h3 {
+    color: #512b59;
+}
+
 #widget-ctn {
     display: flex;
     flex-direction: column;
@@ -44,29 +48,98 @@ html, body {
     height: 100%;
 }
 
-#overlay {
-	display: flex;
-	align-items: center;
+#menu {
     position: absolute;
     bottom: 65px;
-    left: 50%;
+    right: 15px;
     padding: 1vw;
     gap: 1vw;
-    transform: translateX(-50%);
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid #512b59;
     border-radius: 0.5vw;
     font-size: 1.5vw;
-	white-space: nowrap;
+    white-space: nowrap;
+    transition: all 0.3s;
+    z-index: 1000;
 }
 
-#overlay input[type="radio"] {
-    display: inline-block;
-	margin: 0;
-}
-
-#overlay label {
-    display: inline-block;
+#menu-toggle {
+    padding: 5px 10px 5px 10px;
+    font-size: 15px;
     cursor: pointer;
-    color: #512b59;
+    background-color: #512b59;
+    color: white;
+    border-radius: 0.5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#menu-toggle .arrow {
+    margin-left: 10px;
+    transition: transform 0.3s;
+}
+
+#menu.expanded #menu-toggle .arrow {
+    transform: rotate(180deg); /* Rotate the arrow up */
+}
+
+#menu-options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease; /* Smooth transition */
+}
+
+#menu.expanded #menu-options {
+    max-height: 500px; /* Adjust based on content height */
+}
+
+.toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.toggle h3 {
+    pointer-events: none;
+    margin-right: 10px;
+}
+
+.slider {
+    position: relative;
+    width: 34px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 1px;
+    bottom: 1px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+.slider.checked {
+    background-color: #512b59;
+}
+
+.slider.checked:before {
+    transform: translateX(14px);
+}
+
+h3.checked {
+    font-weight: bold;
 }

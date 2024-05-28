@@ -1,7 +1,7 @@
 var map = null;
 var selectedFeature = null;
 var state = null;
-var customOverlays = []; // Array to keep track of custom overlays
+var customOverlays = [];
 
 $(document).ready(function () {
     loadState();
@@ -9,10 +9,29 @@ $(document).ready(function () {
 });
 
 function attachEventHandlers() {
-    $("#overlay input[type=radio]").on("click", function () {
+    $("#menu .slider").on("click", function () {
+		console.log("slider clicked");
         let dataId = $(this).data("id");
         console.log("dataId: ", dataId);
         getParameters(dataId);
+    });
+
+	$("#menu-toggle").on("click", function () {
+		if ($("#menu").hasClass("expanded")) {
+			$("#menu").removeClass("expanded");
+		} else {
+			$("#menu").addClass("expanded");
+		}
+    });
+
+	$("#menu-options .toggle .slider").on("click", function () {
+		const dataId = $(this).data('id');
+
+        $(".slider").removeClass('checked');
+        $("#menu-options").removeClass('checked');
+
+        $(this).addClass('checked');
+        $('#' + dataId).addClass('checked');
     });
 }
 
@@ -102,7 +121,6 @@ function getParameters(paramId) {
 }
 
 function displayMarkers(spots, paramId) {
-	console.log("spots: ", spots);
     const styles = {
         1: {
             icon: {
@@ -154,7 +172,6 @@ function displayMarkers(spots, paramId) {
                 }
 
                 const latlng = new google.maps.LatLng(location.lat, location.lon);
-				console.log(windDir)
 
                 // Create and add a custom overlay for each parameter
                 const overlay = new CustomOverlay(latlng, map, styles[paramId] && styles[paramId].icon ? styles[paramId].icon.url : null, styles[paramId] && styles[paramId].icon ? styles[paramId].icon.rotation : 0, param);
