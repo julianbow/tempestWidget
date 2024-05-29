@@ -60,7 +60,7 @@ class Map {
                 };
             </script>
             <script type="text/javascript" src="/widget/CustomOverlay.js"></script>
-            <script type="text/javascript" src="/widget/widget.js"></script>
+            <script type="text/javascript" src="/widget/MapController.js"></script>
         `;
     };
 
