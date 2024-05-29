@@ -65,7 +65,7 @@ class MapController {
 
 		this.checkAndSetMenuOptions();
 		this.loadState();
-    }
+    };
 
 	checkAndSetMenuOptions() {
         $("#menu-options .toggle .slider").each((index, element) => {
@@ -75,7 +75,7 @@ class MapController {
                 $(element).addClass("checked");
             }
         });
-    }
+    };
 
     loadState() {
 		const zoom = this.zoom != null ? this.zoom : 3;
