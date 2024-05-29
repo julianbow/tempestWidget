@@ -20,9 +20,19 @@ const log = console;
 
 app.get('/tempestMap', async (req, res) => {
     log.debug(">> Enter tempestMap");
+    console.log("Url Params: ", req.query);
     const startTime = Date.now();
 
     try {
+        map.setZoom(req.query.z);
+        map.setCenter({lat: req.query.lat, lng: req.query.lng});
+        map.setUnitsWind(req.query.units_wind);
+        map.setUnitsTemp(req.query.units_temp);
+        map.setUnitsPressure(req.query.units_pres);
+        map.setSort(req.query.sort);
+        map.setUserName(req.query.name);
+        map.setState(req.query.state);
+
         widgetCode = map.getMap();
         console.log(widgetCode);
 

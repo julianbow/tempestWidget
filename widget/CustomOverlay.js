@@ -9,7 +9,7 @@ class CustomOverlay extends google.maps.OverlayView {
         this.strokeColor = "black";
         this.div = null;
         this.setMap(map);
-    }
+    };
 
     onAdd() {
         const div = document.createElement('div');
@@ -17,8 +17,8 @@ class CustomOverlay extends google.maps.OverlayView {
         div.style.display = 'flex';
         div.style.alignItems = 'center';
         div.style.justifyContent = 'center';
-        div.style.padding = '5px'; // Add padding to the container div
-        div.style.overflow = 'visible'; // Ensure overflow is visible
+        div.style.padding = '5px';
+        div.style.overflow = 'visible';
 
         if (this.imageSrc) {
             const img = document.createElement('img');
@@ -35,7 +35,7 @@ class CustomOverlay extends google.maps.OverlayView {
         textDiv.style.fontSize = '15px';
         textDiv.style.fontWeight = '600';
         textDiv.style.textAlign = 'center';
-        textDiv.style.padding = '2px'; // Add padding to the text div
+        textDiv.style.padding = '2px';
         textDiv.style.whiteSpace = 'nowrap';
         textDiv.style.letterSpacing = ".025rem";
         textDiv.style.textShadow = `
@@ -54,7 +54,7 @@ class CustomOverlay extends google.maps.OverlayView {
         this.div = div;
         const panes = this.getPanes();
         panes.overlayImage.appendChild(div);
-    }
+    };
 
     draw() {
         const overlayProjection = this.getProjection();
@@ -62,10 +62,10 @@ class CustomOverlay extends google.maps.OverlayView {
         const div = this.div;
         div.style.left = position.x + 'px';
         div.style.top = position.y + 'px';
-    }
+    };
 
     onRemove() {
         this.div.parentNode.removeChild(this.div);
         this.div = null;
-    }
+    };
 }
