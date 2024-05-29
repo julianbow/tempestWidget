@@ -12,6 +12,8 @@ class MapController {
 		this.unitsPressure = null;
 		this.state = null;
 
+        this.accessToken = null;
+
 		this.paramIds = {
 			"wind": 1,
 			"pressure": 4,
@@ -61,6 +63,7 @@ class MapController {
             this.unitsTemp = params.unitsTemp;
             this.unitsPressure = params.unitsPressure;
 			this.state = params.state;
+            this.accessToken = window.config.wftoken;
         }
 
 		this.checkAndSetMenuOptions();
@@ -140,7 +143,7 @@ class MapController {
             spot_types: paramId,
             stormprint_only: "false",
             include_nowcast_obs: "false",
-            wf_token: "cf7cf3f90b46dde63ce8102fec4613b1",
+            wf_token: this.accessToken,
         }
 
         $.ajax({

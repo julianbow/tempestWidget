@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const Map = require('./Map.js');
+const config = require("../config.json");
+const WFTOKEN = config.wf_token;
 
 const map = new Map();
 
@@ -32,6 +34,8 @@ app.get('/tempestMap', async (req, res) => {
         map.setSort(req.query.sort);
         map.setUserName(req.query.name);
         map.setState(req.query.state);
+
+        map.setToken(WFTOKEN);
 
         widgetCode = map.getMap();
         console.log(widgetCode);

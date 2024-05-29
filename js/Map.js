@@ -58,6 +58,10 @@ class Map {
                     unitsPressure: "${this.unitsPressure}",
                     state: "${this.state}"
                 };
+
+                window.config = {
+                    wftoken: "${this.token}"
+                };
             </script>
             <script type="text/javascript" src="/widget/CustomOverlay.js"></script>
             <script type="text/javascript" src="/widget/MapController.js"></script>
@@ -99,6 +103,10 @@ class Map {
 
     setState(state) {
         this.state = state;
+    };
+
+    setToken(token) {
+        this.token = token;
     };
 };
 
