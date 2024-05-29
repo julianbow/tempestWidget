@@ -22,7 +22,6 @@ const log = console;
 
 app.get('/tempestMap', async (req, res) => {
     log.debug(">> Enter tempestMap");
-    console.log("Url Params: ", req.query);
     const startTime = Date.now();
 
     try {
@@ -38,7 +37,6 @@ app.get('/tempestMap', async (req, res) => {
         map.setToken(WFTOKEN);
 
         widgetCode = map.getMap();
-        console.log(widgetCode);
 
         // Special Logging
         log.info(`windMap,${Date.now() - startTime},${req.method},${JSON.stringify(req.query)}`);
