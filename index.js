@@ -3,14 +3,13 @@ const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const path = require('path');
-const Map = require('./Map.js');
-const config = require("../config.json");
+const Map = require('./public/js/Map');
+const config = require("./config.json");
 const WFTOKEN = config.wf_token;
 
 const map = new Map();
 
-app.use('/widget', express.static(path.join(__dirname, '..', 'widget')));
-app.use('/css', express.static(path.join(__dirname, '..', 'css')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
@@ -35,7 +34,7 @@ app.get('/tempestMap', async (req, res) => {
         map.setState(req.query.state);
         map.setTimeStart(req.query.time_start);
         map.setTimeEnd(req.query.time_end);
-        map.setTimeStep(req.query.time_step);
+
 
         map.setToken(WFTOKEN);
 

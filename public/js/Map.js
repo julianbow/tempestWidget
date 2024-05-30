@@ -41,11 +41,10 @@ class Map {
                         </div>
                     </div>
                 </div>
-                <div id="widget-footer"><img src="/css/images/tempest-logo.svg" class="tempest-logo"></div>
+                <a href="https://shop.tempest.earth/products/tempest" target="_blank"><div id="widget-footer"><img src="../css/images/tempest-logo.svg" class="tempest-logo"></img></div></a>
             </div>
 
-            <a href="https://shop.tempest.earth/products/tempest" target="_blank"><div id="widget-footer"><img src="/css/images/tempest-logo.svg" class="tempest-logo"></img></div></a>
-            <link rel='stylesheet' type='text/css' href="/css/index.css"></link>
+            <link rel='stylesheet' type='text/css' href="../css/index.css"></link>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
             <script>
                 window.jQuery || document.write('<script src="https://d291gtx2rbpaxo.cloudfront.net/lib/jquery/2.2.4/jquery.min.js"><script>');
@@ -69,8 +68,8 @@ class Map {
                     wftoken: "${this.token}"
                 };
             </script>
-            <script type="text/javascript" src="/widget/CustomOverlay.js"></script>
-            <script type="text/javascript" src="/widget/MapController.js"></script>
+            <script type="text/javascript" src="../js/CustomOverlay.js"></script>
+            <script type="text/javascript" src="../js/MapController.js"></script>
         `;
     };
 
