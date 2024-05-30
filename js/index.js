@@ -33,6 +33,9 @@ app.get('/tempestMap', async (req, res) => {
         map.setSort(req.query.sort);
         map.setUserName(req.query.name);
         map.setState(req.query.state);
+        map.setTimeStart(req.query.time_start);
+        map.setTimeEnd(req.query.time_end);
+        map.setTimeStep(req.query.time_step);
 
         map.setToken(WFTOKEN);
 

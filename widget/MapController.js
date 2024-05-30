@@ -11,6 +11,9 @@ class MapController {
 		this.unitsTemp = null;
 		this.unitsPressure = null;
 		this.state = null;
+        this.timeStart = null;
+        this.timeEnd = null;
+        this.timeStep = null;
 
         this.accessToken = null;
 
@@ -64,6 +67,9 @@ class MapController {
             this.unitsPressure = params.unitsPressure;
 			this.state = params.state;
             this.accessToken = window.config.wftoken;
+            this.timeStart = params.timeStart;
+            this.timeEnd = params.timeEnd;
+            this.timeStep = params.timeStep;
         }
 
 		this.checkAndSetMenuOptions();
@@ -137,6 +143,9 @@ class MapController {
             zoom: this.map.getZoom(),
             units_wind: this.unitsWind,
             units_temp: this.unitsTemp,
+            time_start: this.timeStart,
+            time_end: this.timeEnd,
+            time_step: this.timeStep,
             units_distance: "mi",
             sort: "distance",
             meta_level: "1",

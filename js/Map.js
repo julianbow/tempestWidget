@@ -8,6 +8,9 @@ class Map {
 		this.unitsPressure = null;
 		this.username = null;
         this.state = null;
+        this.timeStart = null;
+        this.timeEnd = null;
+        this.timeStep = null;
     };
     _initHtml() {
         this.html = `
@@ -56,7 +59,10 @@ class Map {
                     unitsWind: "${this.unitsWind}",
                     unitsTemp: "${this.unitsTemp}",
                     unitsPressure: "${this.unitsPressure}",
-                    state: "${this.state}"
+                    state: "${this.state}",
+                    timeStart: "${this.timeStart}",
+                    timeEnd: "${this.timeEnd}",
+                    timeStep: "${this.timeStep}",
                 };
 
                 window.config = {
@@ -107,6 +113,18 @@ class Map {
 
     setToken(token) {
         this.token = token;
+    };
+
+    setTimeStart(timeStart) {
+        this.timeStart = timeStart;
+    };
+
+    setTimeEnd(timeEnd) {
+        this.timeEnd = timeEnd;
+    };
+
+    setTimeStep(timeStep) {
+        this.timeStep = timeStep;
     };
 };
 
