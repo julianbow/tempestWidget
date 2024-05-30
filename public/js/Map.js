@@ -32,7 +32,7 @@ class Map {
                             <span class="slider" data-id="1"></span>
                         </div>
                         <div class="toggle">
-                            <h3 id="pressure">Pressure (mb)</h3>
+                            <h3 id="pressure">Pressure (${this.unitsPressure})</h3>
                             <span class="slider" data-id="4"></span>
                         </div>
                         <div class="toggle">
