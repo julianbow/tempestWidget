@@ -6,10 +6,16 @@ html, body {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    background-color: #EFEBF1;
+    font-family: Arial, sans-serif;
 }
 
-h3, h1 {
+h1 {
     color: #512b59;
+}
+
+h3 {
+    color: white;
 }
 
 textarea {
@@ -47,10 +53,11 @@ textarea {
     justify-content: center;
     align-items: center;
     border: 1px solid #d3d3d3;
+    border-radius: 12px;
     padding: 10px;
     width: 350px;
-    font-family: Arial, sans-serif;
     box-sizing: border-box;
+    background-color: #512b59;
 }
 
 .widget-options h3 {
@@ -70,16 +77,21 @@ textarea {
     text-align: left;
 }
 
-.widget-options th {
-    background-color: #f3f3f3;
+.widget-options tr {
+    color: #512b59;
 }
 
-.map-title {
-    width: 95%;
+.widget-options table tbody tr:nth-child(even) {
+    background-color: #E2D8E4;
 }
 
-.map-width, .map-height, .temp-units, .wind-units, .pres-units {
-    width: 20%;
+.widget-options table tbody tr:nth-child(odd) {
+    background-color: #EFEBF1;
+}
+
+input {
+    color: #512b59;
+    width: 60%;
 }
 
 .apply-button {
@@ -93,7 +105,7 @@ textarea {
 
 .note {
     font-size: 12px;
-    color: #555;
+    color: white;
     margin-top: 10px;
 }
 
