@@ -68,4 +68,4 @@ class CustomOverlay extends google.maps.OverlayView {
         this.div.parentNode.removeChild(this.div);
         this.div = null;
     };
-}
+};

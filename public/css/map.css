@@ -4,8 +4,15 @@ html, body {
     height: 100%;
 }
 
-h3 {
+h3, h1 {
     color: #512b59;
+}
+
+#main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #widget-ctn {

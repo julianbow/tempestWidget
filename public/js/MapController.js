@@ -22,7 +22,7 @@ class MapController {
 			"pressure": 4,
 			"temp": 5,
 			"humidity": 139
-		}
+		};
 
         $(document).ready(() => {
 			this.loadParameters();
@@ -153,7 +153,7 @@ class MapController {
             stormprint_only: "false",
             include_nowcast_obs: "false",
             wf_token: this.accessToken,
-        }
+        };
 
         $.ajax({
             url: "https://api.weatherflow.com/wxengine/rest/spot/getSpotDetailSetByZoomLevel/",

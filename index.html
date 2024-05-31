@@ -1,15 +1,67 @@
 <!doctype html>
 <html>
-	<head>
-        <meta name="description" content="Tempest Station Map">
-        <title>Tempest Station Map</title>
-	</head>
-	<body>
-        <iframe src="http://local.weatherflow.com:5502/tempestMap?lat=29.749907&lng=-95.358421&z=8&units_wind=mph&units_temp=F&units_pres=mb&sort=distance&name=KHOU&state=temp&time_start=2024-05-28+10:35:00&time_end=2024-05-28+10:40:00"
-         width="600"
-         height="450"
-         frameborder="0"
-         scrolling="no"
-         allowtransparency="no"></iframe>
-	</body>
+        <head>
+        <meta name="description" content="Tempest Widget Builder">
+        <title>Tempest Widget Builder</title>
+        <link rel='stylesheet' type='text/css' href="./index.css"></link>
+        </head>
+        <body id="main-content">
+                <div id="tempest-header">
+                        <h1>Tempest Widget Builder</h1>
+                </div>
+                <div id="widget-creator">
+                        <div id="widget-content">
+                                <div class="widget-options">
+                                        <h3>Widget Options</h3>
+                                        <table>
+                                            <tr>
+                                                <th>Map Title</th>
+                                                <td><input class="map-title" type="text"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Temp units</th>
+                                                <td><input class="temp-units" type="text" value="F"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Wind units</th>
+                                                <td><input class="wind-units" type="text" value="mph"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Pressure units</th>
+                                                <td><input class="pres-units" type="text" value="mb"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Width</th>
+                                                <td><input class="map-width" type="text" value="600"> px</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Height</th>
+                                                <td><input class="map-height" type="text" value="450"> px</td>
+                                            </tr>
+                                            <tr>
+                                                <th>*Center</th>
+                                                <td class="map-center"></td>
+                                            </tr>
+                                        </table>
+                                        <button class="apply-button">Apply</button>
+                                        <div class="note">
+                                            *Adjust the map below and click "Apply" to set a custom zoom and location for your map widget.
+                                        </div>
+                                    </div>
+                        </div>
+                        <div id="widget-ctn">
+                                <iframe src="http://local.weatherflow.com:5502/tempestMap?lat=29.749907&lng=-95.358421&z=8&units_wind=mph&units_temp=F&units_pres=mb&sort=distance&name=KHOU&state=temp&time_start=2024-05-28+10:35:00&time_end=2024-05-28+10:40:00"
+                                        width="600"
+                                        height="450"
+                                        frameborder="0"
+                                        scrolling="no"
+                                        allowtransparency="no">
+                                </iframe>
+                        </div>
+                </div>
+                <div id="widget-code">
+                        <textarea rows="5" cols="70" readonly="true"><iframe src="http://local.weatherflow.com:5502/tempestMap?lat=29.749907&lng=-95.358421&z=8&units_wind=mph&units_temp=F&units_pres=mb&sort=distance&name=KHOU&state=temp&time_start=2024-05-28+10:35:00&time_end=2024-05-28+10:40:00" width="600" height="450" frameborder="0" scrolling="no" allowtransparency="no"></iframe>
+                        </textarea>
+                </div>
+        </body>
 </html>

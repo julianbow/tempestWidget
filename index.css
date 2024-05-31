@@ -1,0 +1,103 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+h3, h1 {
+    color: #512b59;
+}
+
+textarea {
+    height: 100%;
+    width: 100%;
+}
+
+#main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#tempest-header h1 {
+    margin: 0;
+}
+
+#widget-creator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.widget-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #d3d3d3;
+    padding: 10px;
+    width: 350px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.widget-options h3 {
+    margin: 0 0 10px 0;
+    padding: 5px 0;
+}
+
+.widget-options table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.widget-options th,
+.widget-options td {
+    border: 1px solid #d3d3d3;
+    padding: 5px;
+    text-align: left;
+}
+
+.widget-options th {
+    background-color: #f3f3f3;
+}
+
+.map-title {
+    width: 95%;
+}
+
+.map-width, .map-height, .temp-units, .wind-units, .pres-units {
+    width: 20%;
+}
+
+.apply-button {
+    margin-top: 10px;
+    padding: 5px 15px;
+    background-color: #fdd835;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.note {
+    font-size: 12px;
+    color: #555;
+    margin-top: 10px;
+}
+
+#widget-code {
+    width: 60%;
+    height: 80px;
+}
