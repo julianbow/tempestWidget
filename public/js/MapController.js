@@ -175,6 +175,8 @@ class MapController {
             success: (response) => {
                 if (response.status.status_code === 0 && response.spots !== null) {
                     this.displayMarkers(response.spots, paramId);
+                } else {
+                    alert(`Error: ${response.status.status_message}`);
                 }
             },
             error: function (error) {
