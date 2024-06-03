@@ -97,6 +97,8 @@ class MapController {
     };
 
     initMap(center, zoom) {
+        const self = this;
+
         this.map = new google.maps.Map(document.getElementById("station-map"), {
             zoom: zoom,
             minZoom: 4,
@@ -131,6 +133,17 @@ class MapController {
         google.maps.event.addListener(this.map, "idle", () => {
             const dataId = $(".slider.checked").data("id");
             this.getParameters(dataId);
+        });
+
+        google.maps.event.addListener(this.map, 'zoom_changed', () => {
+            const zoomLevel = this.map.getZoom();
+            this.zoom = zoomLevel;
+
+            self.sendMapInfo(this.map);
+        });
+
+        google.maps.event.addListener(this.map, 'bounds_changed', () => {
+            self.sendMapInfo(this.map);
         });
     };
 
@@ -249,6 +262,20 @@ class MapController {
                 }
             });
         });
+    };
+
+    sendMapInfo(map) {
+        var zoom = map.getZoom();
+        var center = map.getCenter();
+        var mapInfo = {
+            type: 'mapInfo',
+            zoom: zoom,
+            center: {
+                lat: center.lat(),
+                lng: center.lng()
+            }
+        };
+        window.parent.postMessage(mapInfo, '*');
     };
 };
 

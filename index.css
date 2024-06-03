@@ -91,7 +91,12 @@ textarea {
 
 input {
     color: #512b59;
-    width: 60%;
+    width: 70%;
+    padding: 3px;
+}
+
+.temp-units, .wind-units, .state {
+    width: 75px;
 }
 
 .apply-button {
