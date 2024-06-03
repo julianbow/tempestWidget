@@ -67,6 +67,11 @@ textarea {
 .widget-options table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.widget-options th {
+    width: 35%;
 }
 
 .widget-options th,
@@ -74,6 +79,9 @@ textarea {
     border: 1px solid #d3d3d3;
     padding: 5px;
     text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .widget-options tr {
