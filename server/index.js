@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.listen(5502, () => {
+app.listen(5502, '0.0.0.0', () => {
     console.log('Server is running on http://127.0.0.1:5502');
 });
 
@@ -34,7 +34,6 @@ app.get('/tempestMap', async (req, res) => {
         map.setState(req.query.state);
         map.setTimeStart(req.query.time_start);
         map.setTimeEnd(req.query.time_end);
-
 
         map.setToken(WFTOKEN);
 
