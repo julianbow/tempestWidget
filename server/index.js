@@ -2,25 +2,29 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 const path = require('path');
 const Map = require('./public/js/Map');
 const config = require("./config.json");
 const WFTOKEN = config.wf_token;
+const port = process.env.PORT || 3000;
 
 const map = new Map();
+
+app.use(compression());
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.listen(5502, '0.0.0.0', () => {
-    console.log('Server is running on http://127.0.0.1:5502');
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Server is running on ${port}`);
 });
 
 const log = console;
 
-app.get('/tempestMap', async (req, res) => {
-    log.debug(">> Enter tempestMap");
+app.get('/tempestWidget', async (req, res) => {
+    log.debug(">> Enter tempestWidget");
     const startTime = Date.now();
 
     try {
@@ -41,7 +45,7 @@ app.get('/tempestMap', async (req, res) => {
 
         // Special Logging
         log.info(`windMap,${Date.now() - startTime},${req.method},${JSON.stringify(req.query)}`);
-        log.debug("<< Exit tempestMap");
+        log.debug("<< Exit tempestWidget");
 
         res.status(200).type('text/html').send(widgetCode);
     } catch (e) {
